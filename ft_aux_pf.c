@@ -37,11 +37,11 @@ void	ft_bzero_pf(void *mem, size_t len)
 	}
 }
 
-void	ft_calloc_pf(size_t len, size_t size)
+void	*ft_calloc_pf(size_t len, size_t size)
 {
 	void	*dest;
 
-	dest = malloc(number * size);
+	dest = malloc(len * size);
 	if (dest == NULL)
 		return (NULL);
 	ft_bzero_pf(dest, len * size);
@@ -57,7 +57,7 @@ static size_t	ft_len(unsigned long long n, char *base)
 	base_len = ft_strlen_pf(base);
 	while (n >= base_len)
 	{
-		n /= baselen;
+		n /= base_len;
 		len++;
 	}
 	return (len);
